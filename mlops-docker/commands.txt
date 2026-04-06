@@ -1,0 +1,69 @@
+# ================================
+# MLOps Docker Assignment Commands
+# ================================
+
+# 1. Train Machine Learning Model
+# This will create model.pkl file
+python model.py
+
+
+# 2. Build Docker Image from Dockerfile
+# -t means tag/name of image
+docker build -t iris-api .
+
+
+# 3. Check Available Docker Images
+docker images
+
+
+# 4. Run Docker Container
+# -p maps port 5000 (host) to 5000 (container)
+docker run -p 5000:5000 iris-api
+
+
+# 5. Check Running Containers
+docker ps
+
+
+# 6. Stop Running Container (replace with your container ID)
+docker stop <container_id>
+
+
+# 7. Login to Docker Hub Account
+docker login
+
+
+# 8. Tag Local Image for Docker Hub
+# Format: username/repository-name
+docker tag iris-api mabdullahali2468/iris-api:latest
+
+
+# 9. Push Image to Docker Hub
+docker push mabdullahali2468/iris-api:latest
+
+
+# 10. Pull Image from Docker Hub
+docker pull mabdullahali2468/iris-api:latest
+
+
+# 11. Run Pulled Image
+docker run -p 5000:5000 mabdullahali2468/iris-api
+
+
+# ================================
+# API Testing (using Thunder Client / Postman)
+# ================================
+
+# URL:
+# http://localhost:5000/predict
+
+# Method:
+# POST
+
+# Body (JSON):
+# {
+#   "sepal_length": 5.1,
+#   "sepal_width": 3.5,
+#   "petal_length": 1.4,
+#   "petal_width": 0.2
+# }
